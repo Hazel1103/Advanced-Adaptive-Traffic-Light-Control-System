@@ -1,74 +1,87 @@
-# Advanced Adaptive Traffic Light Control System
+# 高级自适应交通信号灯控制系统
 
-This repository contains the Advanced Adaptive Traffic Light Control System, which uses machine learning and microcontroller technologies to manage traffic lights more efficiently and adaptively. This system is designed to handle complex traffic scenarios, dynamically adjusting the duration of each traffic light phase based on real-time conditions.
+本仓库存放高级自适应交通信号灯控制系统，该系统结合机器学习与微控制器技术，对交通信号灯实现更高效的自适应管控。本系统专为处理复杂交通场景设计，可依据实时路况动态调整每个信号灯相位的持续时长。
 
-## Overview
+## 概述
 
-The system leverages machine learning models and ESP microcontrollers to manage traffic lights at intersections. The key features of this version include handling complex maps with multiple lanes and dynamically calculating the duration of each traffic light phase based on the current traffic situation. The communication network is enhanced with Bluetooth, ensuring robust and flexible connectivity.
+该系统利用机器学习模型与 ESP 系列微控制器对路口交通信号灯进行管控。本版本主要特性包括：可处理包含多车道的复杂地图，并根据当前交通状况动态计算各信号灯相位的持续时间。通信网络新增蓝牙功能，保障通信稳定且连接方式灵活。
 
-### GIF Demonstration
+## GIF 演示动图
 
 ![System Integration](Documentation/Smart_Traffic_light_&_congestion_control_based.gif)
 
-## Complex Junction Example
+## 复杂路口示例
 
-The new version of the model is capable of handling complex junctions with intricate lane structures. Below is an example of such a complex junction that the system can manage:
+新版模型能够处理车道结构错综复杂的复杂路口。下图为该系统可管控的一类复杂路口示例：
 
 ![Complex Junction](Documentation/complex_junction_example.png)
 
-## Key Features
+## 主要功能
 
-1. **Complex Map Handling**: The model can manage junctions with multiple lanes, making it suitable for more intricate traffic networks.
-2. **Dynamic Phase Duration**: The system calculates the duration of each traffic light phase based on the number of cars, providing an adaptive response to real-time traffic conditions.
-3. **Bluetooth Integration**: The communication network now includes Bluetooth for enhanced connectivity between components.
+1. **复杂地图处理**：该模型可管控多车道路口，适用于结构更加复杂的交通路网。
+2. **动态相位时长**：系统根据车辆数量计算各信号灯相位的持续时间，针对实时交通状况做出自适应响应。
+3. **蓝牙集成**：通信网络加入蓝牙，提升各组件之间的连接能力。
 
-## System Components
+## 系统组成
 
-- **ESP Microcontrollers**: Manage the traffic lights and communicate with the central control system.
-- **Machine Learning Model**: Analyzes real-time traffic data and determines the optimal traffic light durations.
-- **Communication Network**: Utilizes Bluetooth for robust and flexible connectivity between microcontrollers and the central system.
+- **ESP 微控制器**：管控交通信号灯，并与中央控制系统通信。
+- **机器学习模型**：分析实时交通数据，输出最优信号灯配时方案。
+- **通信网络**：使用蓝牙实现微控制器与中央系统之间稳定、灵活的数据连接。
 
-## Installation and Setup
+## 安装与部署
 
-### Prerequisites
+### 环境依赖
 
-- SUMO (Simulation of Urban MObility) for traffic simulation.
-- Python 3.8 and necessary libraries (see `requirements.txt` for dependencies).
-- ESP microcontrollers with Bluetooth capabilities.
-- Appropriate hardware setup for the communication network.
+- SUMO（城市交通仿真工具），用于交通仿真。
+- Python 3.8 及所需依赖库（依赖项详见 `requirements.txt`）。
+- 具备蓝牙功能的 ESP 系列微控制器。
+- 适配通信网络的硬件环境。
 
-### Installation
+### 安装步骤
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/AhmedMohamedomar74/adaptive-traffic-light-control-system.git
-   cd adaptive-traffic-light-control-system/V2
-2. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
+1. **克隆代码仓库**：
 
-3. **SUMO GUI**:
-   Download and install the SUMO GUI from [the official website](https://sumo.dlr.de/docs/Downloads.php) if you 
-   haven't already.
+```
+git clone https://github.com/AhmedMohamedomar74/adaptive-traffic-light-control-system.git
+cd adaptive-traffic-light-control-system/V2
+```
 
-### Hardware Setup
-1. **Microcontroller Configuration**:
-    Configure the ESP microcontrollers with the provided code. Ensure the Bluetooth
-2. **Network Configuration**:
-    Set up the communication network between microcontrollers and the central system using Bluetooth
-### Running the System
-1. **Power on the Microcontrollers**:
-    Ensure all microcontrollers are properly connected and powered on.
-2. **Run the Control Script**:
-    Set up the communication network between microcontrollers and the central system using Bluetooth
-    ```bash
-    python train.py
-3. **Running the Advanced Model**:
-    To run the advanced model, use the following command:
-    ```bash
-    python train_adv.py
-    
-Additionally, you need to modify the configuration file:
-- Replace `city1` with `osm` in the configuration file to match the advanced model's requirements.
+2. **安装依赖库**：
+
+```
+pip install -r requirements.txt
+```
+
+3. **SUMO 图形仿真工具**：
+如尚未安装，请访问 https://sumo.dlr.de/docs/Downloads.php 下载并安装 SUMO GUI。
+
+### 硬件配置
+
+1. **微控制器配置**：
+使用项目提供的代码对 ESP 微控制器进行配置，确保蓝牙功能正常。
+2. **网络配置**：
+通过蓝牙搭建微控制器与中央系统之间的通信网络。
+
+### 运行系统
+
+1. **上电启动微控制器**：
+确认所有微控制器接线正常并已通电。
+2. **运行控制脚本**：
+通过蓝牙搭建微控制器与中央系统之间的通信网络
+
+```
+python train.py
+```
+
+3. **运行高级版模型**：
+执行以下命令运行高级模型：
+
+```
+python train_adv.py
+```
+
+此外，需要修改配置文件：
+
+- 在配置文件中将 `city1` 修改为 `osm`，以适配高级模型的运行要求。
 
 
